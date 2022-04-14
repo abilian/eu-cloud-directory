@@ -8,9 +8,9 @@ WIP website for the Euclidia Cloud Directory
 1) Checkout https://github.com/Fonds-de-Dotation-du-Libre/european-cloud-industry in the `data/` directory
 (symlinks work also).
 
-2) Create and activate a Python virtualenv. Make sure you have installed Poetry.
+2) Create and activate a Python virtualenv. Make sure you have installed Poetry and Yarn.
 
-3) Run `poetry install`
+3) Run `poetry install`. From the `vite` directory, run `yarn`.
 
 4) Run `make build`.
 
