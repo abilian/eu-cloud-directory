@@ -1,0 +1,71 @@
+{% extends "_layout.j2" %}
+
+{% block body %}
+
+  <div class="bg-gray-100 border-b border-gray-300">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8">
+
+      <main class="bg-gray-100 pt-6">
+
+        <div class="mt-8 grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 xl:gap-8">
+
+          {% for provider in providers %}
+
+            <div class="card bg-white text-gray-700 rounded border border-gray-200 drop-shadow">
+              <a href="./providers/{{ provider.id }}.html">
+                <h2 class="px-4 py-2 border-b border-gray-200 text-lg font-bold">{{ provider.title }}</h2>
+
+                <figure class="border-b border-gray-200 p-4">
+                  <img src="{{ provider.logo_url }}" alt="" class="align-center" style="max-height: 100px;"/>
+                </figure>
+
+{#                <div class="justify-end p-4 text-sm border-b border-gray-200">#}
+{#                  <div class="h-36 overflow-hidden">2i2L est une société spécialisée dans la formation et#}
+{#                    l'accompagnement,#}
+{#                    aux#}
+{#                    usages informatiques, sur la plupart des applications libres les plus connues.#}
+{#                  </div>#}
+{#                </div>#}
+              </a>
+
+              <div class="justify-end text-sm p-4">
+                <div class="flex space-x-4 mb-3">
+                  <span class="h-4 w-4 rounded-full text-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                  </span>
+
+                  <div class="flex-1 space-y-1">
+                    {% set location = provider.location %}
+                    <a class="badge badge-warning"
+                        href="/villes/Saint-S%C3%A9bastien-sur-Loire/">{{ location.country }}, {{ location.city }}</a>
+                  </div>
+                </div>
+
+{#                <div class="flex space-x-4">#}
+{#                  <span class="h-4 w-4 text-gray-500">#}
+{#                    <svg class='h-6 w-6' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"#}
+{#                        aria-hidden="true">#}
+{#                      <path#}
+{#                          d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>#}
+{#                    </svg>#}
+{##}
+{#                  </span>#}
+{##}
+{#                  <div class="flex-1 space-y-1">#}
+{#                    <a href="/clusters/Alliance%20Libre/" class="badge badge-info">Alliance Libre</a>#}
+{#                  </div>#}
+{#                </div>#}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </main>
+    </div>
+  </div>
+{% endblock %}
