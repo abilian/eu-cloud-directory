@@ -1,11 +1,21 @@
 .PHONY: build
 build:
-	./build.py
+	poetry run build
 
 
 clean:
 	rm -rf vite/dist
 
 
-push: build
+deploy: build
 	rsync -e ssh -avz build/ web@bulma:/srv/web/eu-cloud-directory.lab.abilian.com/
+
+
+update:
+	cd data && git pull
+
+
+install:
+	poetry install
+	yarn --cwd vite install
+

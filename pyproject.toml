@@ -3,12 +3,16 @@ name = "eu-cloud"
 version = "0.1.0"
 description = ""
 authors = ["Stefane Fermigier <sf@abilian.com>"]
+packages = [{ include = "app", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 Jinja2 = "^3.1.1"
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+build = "app.cli:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

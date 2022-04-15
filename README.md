@@ -10,12 +10,11 @@ WIP website for the Euclidia Cloud Directory
 
 2) Create and activate a Python virtualenv. Make sure you have installed Poetry and Yarn.
 
-3) Run `poetry install`. From the `vite` directory, run `yarn`.
+3) Run `make install`
 
-4) Run `make build`.
+4) Run `make build`
 
 5) The content of the website is in the "build" directory. 
 
-You may run a local webserver with: `python -m http.server 8000` from this directory.
-
-6) Point your browser to http://localhost:8000/
+6) You may run a local webserver with: `python -m http.server 8000` from this directory, and then
+point your browser to http://localhost:8000/

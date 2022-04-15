@@ -4,40 +4,8 @@ import glob
 import json
 import os
 
-from devtools import debug
 from jinja2 import Environment, select_autoescape, FileSystemLoader
-
-providers = {}
-solutions = {}
-
-
-def read_data():
-    files = glob.glob("data/*.json")
-
-    for file in sorted(files):
-        try:
-            provider = json.load(open(file))
-        except:
-            print(f"failed to read {file}")
-            continue
-
-        provider_name = provider["title"]
-        provider["id"] = file.split("/")[1][0:-len(".json")]
-        providers[provider_name] = provider
-
-        for solution in provider["solution_list"]:
-            if not isinstance(solution, dict):
-                continue
-            if not "title" in solution:
-                continue
-            solution_name = solution["title"]
-            solutions[solution_name] = solution
-
-        try:
-            provider["solution_list"] = sorted(provider["solution_list"], key=lambda x: x['title'])
-        except:
-            pass
-
+from .load import providers, solutions, read_data
 
 def generate_page(template, name, ctx):
     env = Environment(
@@ -77,10 +45,7 @@ def vite_build():
     os.system("cp -r vite/dist/assets build/")
 
 
-def main():
+def build():
     vite_build()
     read_data()
     generate_pages()
-
-
-main()
